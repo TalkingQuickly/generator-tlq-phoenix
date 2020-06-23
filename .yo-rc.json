@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Ben Dixon",
+      "authorEmail": "ben@talkingquickly.co.uk",
+      "authorUrl": "https://www.talkingqquickly.co.uk"
+    }
+  }
+}
