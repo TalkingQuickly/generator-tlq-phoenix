@@ -31,7 +31,7 @@ module.exports = class extends Generator {
     const basePath = snakeCase.snakeCase(this.appname)
     const viewNamePascal = camelCase(this.props.liveViewName, {pascalCase: true})
     const viewPath = snakeCase.snakeCase(this.props.liveViewName)
-    const templateVars = { baseModule: baseModule, viewNamePascal: viewNamePascal, viewNameSnake: basePath}
+    const templateVars = { baseModule: baseModule, viewNamePascal: viewNamePascal, viewNameSnake: viewPath}
 
     this.fs.copyTpl(
       this.templatePath('liveview_controller.ex'),
@@ -41,13 +41,13 @@ module.exports = class extends Generator {
 
     this.fs.copyTpl(
       this.templatePath('liveview_view.ex'),
-      this.destinationPath(`lib/${basePath}_web/views/${viewPath}.ex`),
+      this.destinationPath(`lib/${basePath}_web/views/${viewPath}_view.ex`),
       templateVars
     );
 
     this.fs.copyTpl(
       this.templatePath('liveview_template.html.leex'),
-      this.destinationPath(`lib/${basePath}_web/templates/${viewPath}/${basePath}.html.leex`),
+      this.destinationPath(`lib/${basePath}_web/templates/${viewPath}/${viewPath}.html.leex`),
       templateVars
     );
 

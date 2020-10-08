@@ -4,7 +4,7 @@ defmodule <%= baseModule %>Web.<%= viewNamePascal %>Live do
   @impl true
   @spec mount(any, any, Phoenix.LiveView.Socket.t()) :: {:ok, Phoenix.LiveView.Socket.t()}
   def mount(_, session, socket) do
-    socket = socket |> assign_defaults(nil, session)
+    socket = socket |> assign_defaults(session)
     {:ok, socket}
   end
 
